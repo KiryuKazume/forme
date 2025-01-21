@@ -297,6 +297,32 @@ UserInputService.InputBegan:Connect(function(input, isProcessed)
     end
 end)
 
+local currentNTrack = nil -- Keep track of the current animation for N
+
+local function playNAnimation()
+    if Humanoid then
+        -- Stop the current animation if it's already playing
+        if currentNTrack then
+            currentNTrack:Stop()
+        end
+
+        -- Play the M animation
+        local animator = Humanoid:FindFirstChildOfClass("Animator") or Instance.new("Animator", Humanoid)
+        local animation = Instance.new("Animation")
+        animation.AnimationId = "rbxassetid://84065993964036" -- Play animation
+        currentNTrack = animator:LoadAnimation(animation)
+        currentNTrack:Play()
+    end
+end
+
+-- Update M key input
+UserInputService.InputBegan:Connect(function(input, isProcessed)
+    if isProcessed then return end
+    if input.KeyCode == Enum.KeyCode.M then
+        playNAnimation() -- Play animation for fun
+    end
+end)
+
 -- Function to set STANCE, STANCEWALK, and STANCESTART animations (AnimationId)
 local function setStanceAnimations()
     local officer = workspace:FindFirstChild("Kiru_Kazuma") and workspace.Kiru_Kazuma:FindFirstChild("Officer")
@@ -314,13 +340,18 @@ local function setStanceAnimations()
             -- Set STANCEWALK animation
             local stanceWalk = animationFolder:FindFirstChild("STANCEWALK")
             if stanceWalk and stanceWalk:IsA("Animation") then
-                stanceWalk.AnimationId = "rbxassetid://18940201546"
+                stanceWalk.AnimationId = "rbxassetid://85725408047568"
             end
 
             -- Set STANCESTART animation
             local stanceStart = animationFolder:FindFirstChild("STANCESTART")
             if stanceStart and stanceStart:IsA("Animation") then
-                stanceStart.AnimationId = "rbxassetid://88086183548085"
+                stanceStart.AnimationId = "rbxassetid://93084592654310"
+
+            -- Set BLOCK animation
+            local stanceStart = animationFolder:FindFirstChild("BLOCK")
+            if stanceStart and stanceStart:IsA("Animation") then
+                stanceStart.AnimationId = "rbxassetid://118582160087758"
             end
         end
     end
