@@ -349,9 +349,9 @@ local function setStanceAnimations()
                 stanceStart.AnimationId = "rbxassetid://93084592654310"
 
             -- Set BLOCK animation
-            local stanceStart = animationFolder:FindFirstChild("BLOCK")
-            if stanceStart and stanceStart:IsA("Animation") then
-                stanceStart.AnimationId = "rbxassetid://118582160087758"
+            local block = animationFolder:FindFirstChild("BLOCK")
+            if block and stanceStart:IsA("Animation") then
+                block.AnimationId = "rbxassetid://118582160087758"
             end
         end
     end
