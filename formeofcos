@@ -297,21 +297,21 @@ UserInputService.InputBegan:Connect(function(input, isProcessed)
     end
 end)
 
-local currentNTrack = nil -- Keep track of the current animation for N
+local currentMTrack = nil -- Keep track of the current animation for M
 
 local function playNAnimation()
     if Humanoid then
         -- Stop the current animation if it's already playing
-        if currentNTrack then
-            currentNTrack:Stop()
+        if currentMTrack then
+            currentMTrack:Stop()
         end
 
         -- Play the M animation
         local animator = Humanoid:FindFirstChildOfClass("Animator") or Instance.new("Animator", Humanoid)
         local animation = Instance.new("Animation")
         animation.AnimationId = "rbxassetid://84065993964036" -- Play animation
-        currentNTrack = animator:LoadAnimation(animation)
-        currentNTrack:Play()
+        currentMTrack = animator:LoadAnimation(animation)
+        currentMTrack:Play()
     end
 end
 
