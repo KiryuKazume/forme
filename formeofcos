@@ -297,28 +297,28 @@ UserInputService.InputBegan:Connect(function(input, isProcessed)
     end
 end)
 
-local currentMTrack = nil -- Keep track of the current animation for M
+local currentJTrack = nil -- Keep track of the current animation for J
 
 local function playNAnimation()
     if Humanoid then
         -- Stop the current animation if it's already playing
-        if currentMTrack then
-            currentMTrack:Stop()
+        if currentJTrack then
+            currentJTrack:Stop()
         end
 
-        -- Play the M animation
+        -- Play the J animation
         local animator = Humanoid:FindFirstChildOfClass("Animator") or Instance.new("Animator", Humanoid)
         local animation = Instance.new("Animation")
         animation.AnimationId = "rbxassetid://84065993964036" -- Play animation
-        currentMTrack = animator:LoadAnimation(animation)
-        currentMTrack:Play()
+        currentJTrack = animator:LoadAnimation(animation)
+        currentJTrack:Play()
     end
 end
 
--- Update M key input
+-- Update J key input
 UserInputService.InputBegan:Connect(function(input, isProcessed)
     if isProcessed then return end
-    if input.KeyCode == Enum.KeyCode.M then
+    if input.KeyCode == Enum.KeyCode.J then
         playNAnimation() -- Play animation for fun
     end
 end)
@@ -347,6 +347,11 @@ local function setStanceAnimations()
             local stanceStart = animationFolder:FindFirstChild("STANCESTART")
             if stanceStart and stanceStart:IsA("Animation") then
                 stanceStart.AnimationId = "rbxassetid://93084592654310"
+
+            -- Set BLOCK animation
+            local block = animationFolder:FindFirstChild("BLOCK")
+            if block and stanceStart:IsA("Animation") then
+                block.AnimationId = "rbxassetid://118582160087758"
             end
         end
     end
