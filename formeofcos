@@ -299,7 +299,7 @@ end)
 
 local currentJTrack = nil -- Keep track of the current animation for J
 
-local function playNAnimation()
+local function playJAnimation()
     if Humanoid then
         -- Stop the current animation if it's already playing
         if currentJTrack then
@@ -319,7 +319,7 @@ end
 UserInputService.InputBegan:Connect(function(input, isProcessed)
     if isProcessed then return end
     if input.KeyCode == Enum.KeyCode.J then
-        playNAnimation() -- Play animation for fun
+        playJAnimation() -- Play animation for fun
     end
 end)
 
@@ -347,6 +347,11 @@ local function setStanceAnimations()
             local stanceStart = animationFolder:FindFirstChild("STANCESTART")
             if stanceStart and stanceStart:IsA("Animation") then
                 stanceStart.AnimationId = "rbxassetid://93084592654310"
+
+            -- Set BLOCK animation
+            local block = animationFolder:FindFirstChild("BLOCK")
+            if block and block:IsA("Animation") then
+                block.AnimationId = "rbxassetid://118582160087758"
             end
         end
     end
