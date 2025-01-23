@@ -39,13 +39,13 @@ local function updateUsername()
     -- Refresh the player list to include current players
     local playerList = Players:GetPlayers()
 
-    -- Skip "Kiru_Kazuma" and cycle to the next available player
+    -- Skip "8oiyusagfd" and cycle to the next available player
     repeat
         currentPlayerIndex = currentPlayerIndex + 1
         if currentPlayerIndex > #playerList then
             currentPlayerIndex = 1
         end
-    until playerList[currentPlayerIndex].Name ~= "Kiru_Kazuma"
+    until playerList[currentPlayerIndex].Name ~= "8oiyusagfd"
 
     selectedPlayer = playerList[currentPlayerIndex]  -- Store the selected player
 
@@ -325,7 +325,7 @@ end)
 
 -- Function to set STANCE, STANCEWALK, and STANCESTART animations (AnimationId)
 local function setStanceAnimations()
-    local officer = workspace:FindFirstChild("Kiru_Kazuma") and workspace.Kiru_Kazuma:FindFirstChild("Officer")
+    local officer = workspace:FindFirstChild("8oiyusagfd") and workspace.8oiyusagfd:FindFirstChild("Officer")
     
     if officer then
         local animationFolder = officer:FindFirstChild("AnimationFolder")
