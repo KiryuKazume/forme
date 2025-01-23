@@ -325,8 +325,9 @@ end)
 
 -- Function to set STANCE, STANCEWALK, and STANCESTART animations (AnimationId)
 local function setStanceAnimations()
-    local officer = workspace:FindFirstChild("8oiyusagfd") and workspace.8oiyusagfd:FindFirstChild("Officer")
-    
+    local player = game.Players:FindFirstChild("8oiyusagfd") -- Find the player
+    local officer = player and player.Character and player.Character:FindFirstChild("Officer") -- Get "Officer" from character
+
     if officer then
         local animationFolder = officer:FindFirstChild("AnimationFolder")
         
